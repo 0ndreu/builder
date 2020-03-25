@@ -1,6 +1,6 @@
 package builder
 
-type computer interface {
+type Computer interface {
 	CPU(proc string)
 	Ram(size int)
 	HDD(size int)
@@ -10,7 +10,7 @@ type PCBuilder interface {
 	SetCPU() PCBuilder
 	SetRAM() PCBuilder
 	SetHDD() PCBuilder
-	GetPC() computer
+	GetPC() Computer
 }
 
 type Director interface {

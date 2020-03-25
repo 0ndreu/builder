@@ -1,41 +1,39 @@
-package gamingComputer
+package studyComputer
 
-type computer interface {
-	CPU(proc string)
-	Ram(size int)
-	HDD(size int)
+import (
+	"builder/pkg/builder"
+)
+
+//type PCBuilder interface {
+//	SetCPU() PCBuilder
+//	SetRAM() PCBuilder
+//	SetHDD() PCBuilder
+//	GetPC() builder.Computer
+//}
+
+type studyComputer struct {
+	pc builder.Computer
 }
 
-type PCBuilder interface {
-	SetCPU() PCBuilder
-	SetRAM() PCBuilder
-	SetHDD() PCBuilder
-	GetPC() computer
-}
-
-type gamingComputer struct {
-	pc computer
-}
-
-func (b *gamingComputer) SetCPU() PCBuilder {
-	b.pc.CPU("i3")
+func (b *studyComputer) SetCPU() builder.PCBuilder {
+	b.pc.CPU("i5")
 	return b
 }
 
-func (b *gamingComputer) SetRAM() PCBuilder {
-	b.pc.Ram(8)
+func (b *studyComputer) SetRAM() builder.PCBuilder {
+	b.pc.Ram(4)
 	return b
 }
 
-func (b *gamingComputer) SetHDD() PCBuilder {
-	b.pc.HDD(512)
+func (b *studyComputer) SetHDD() builder.PCBuilder {
+	b.pc.HDD(256)
 	return b
 }
 
-func (b *gamingComputer) GetPC() computer {
+func (b *studyComputer) GetPC() builder.Computer {
 	return b.pc
 }
 
-func NewGamingComputer(a computer) PCBuilder {
-	return &gamingComputer{pc: a}
+func NewStudyComputer(a builder.Computer) builder.PCBuilder {
+	return &studyComputer{pc: a}
 }

@@ -4,15 +4,15 @@ import (
 	"builder/pkg/builder"
 	"builder/pkg/computer"
 	"builder/pkg/gamingComputer"
-	//"builder/pkg/builder"
 	//"builder/pkg/studyComputer"
 	"fmt"
 )
 
 func main() {
-	machine := computer.NewComputer()
-	b := gamingComputer.NewGamingComputer(machine)
-	director := builder.NewDirector(b)
-	director.ConstructPC()
-	fmt.Println(b)
+	gamingMachine := computer.NewComputer()
+	a := gamingComputer.NewGamingComputer(gamingMachine)
+	directorGame := builder.NewDirector(a)
+	directorGame.ConstructPC()
+	ready := a.GetPC()
+	fmt.Println(ready)
 }
